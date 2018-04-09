@@ -1,4 +1,4 @@
-angular.module('sample').component('rbxConnection', {
+angular.module('bootstrap').component('rbxConnection', {
     bindings: {
         name: '@'
     },

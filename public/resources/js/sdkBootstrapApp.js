@@ -1,7 +1,7 @@
 
-var sample = angular.module('sample', ['sdk']);
+var bootstrap = angular.module('bootstrap', ['sdk']);
 
-sample.controller("sampleController", [
+bootstrap.controller("bootstrapController", [
     "$log",
     "$rootScope",
     "rainbowSDK",

@@ -16,17 +16,17 @@
         ]
     },
     "app": {
-        "bootstrap": "sample",
+        "bootstrap": "bootstrap",
         "key": {
             "appID":"5978373bf8abe8ad97357f02",
             "appSecret":""
         },
         "js": [
-            "resources/js/sdkSampleApp.js",
+            "resources/js/sdkBootstrapApp.js",
             "resources/js/components/connection/connectionCmp.js"
         ],
         "css": [
-            "resources/styles/sdkSampleApp.css",
+            "resources/styles/sdkBootstrapApp.css",
             "resources/js/components/connection/connectionCmp.css"
         ]
     },
