@@ -1,0 +1,18 @@
+{
+  "name": "belajar-rainbow",
+  "version": "1.0.0",
+  "description": "belajar rainbow",
+  "main": "jquery-2.2.3.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "riansyah",
+  "license": "ISC",
+  "dependencies": {
+    "angular-route": "^1.6.9",
+    "rainbow-web-sdk": "^1.37.0"
+  },
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
+}

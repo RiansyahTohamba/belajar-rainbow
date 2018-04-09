@@ -1,0 +1,38 @@
+{
+    "libraries": {
+        "prerequisites": [
+            "//code.jquery.com/jquery-2.1.3.min.js",
+            "//cdn.jsdelivr.net/momentjs/2.15.1/moment-with-locales.min.js",
+            "//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.min.js"
+        ],
+        "sdk": {
+            "official": [
+                "//api.openrainbow.com/sdk/web/libs/vendors-sdk.min.js",
+                "//api.openrainbow.com/sdk/web/libs/rainbow-sdk.min.js"
+            ],
+            "default": "official"
+        },
+        "after": [
+        ]
+    },
+    "app": {
+        "bootstrap": "sample",
+        "key": {
+            "appID":"5978373bf8abe8ad97357f02",
+            "appSecret":""
+        },
+        "js": [
+            "resources/js/sdkSampleApp.js",
+            "resources/js/components/connection/connectionCmp.js"
+        ],
+        "css": [
+            "resources/styles/sdkSampleApp.css",
+            "resources/js/components/connection/connectionCmp.css"
+        ]
+    },
+    "settings": {
+        "verboseLog": true,
+        "disableCache": true,
+        "enableLoader": true
+    }
+}
