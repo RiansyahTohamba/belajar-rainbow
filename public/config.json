@@ -23,11 +23,15 @@
         },
         "js": [
             "resources/js/sdkBootstrapApp.js",
-            "resources/js/components/connection/connectionCmp.js"
+            "resources/js/components/connection/connectionCmp.js",
+            "resources/js/components/user/userCmp.js",
+            "resources/js/components/messenger/messengerCmp.js"
         ],
         "css": [
             "resources/styles/sdkBootstrapApp.css",
-            "resources/js/components/connection/connectionCmp.css"
+            "resources/js/components/connection/connectionCmp.css",
+            "resources/js/components/user/userCmp.css",
+            "resources/js/components/messenger/messengerCmp.css"
         ]
     },
     "settings": {

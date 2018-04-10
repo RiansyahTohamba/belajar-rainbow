@@ -4,9 +4,7 @@ angular.module('bootstrap').component('rbxConnection', {
     },
     templateUrl: '',
     controller : function rbcConnectionCtrl (rainbowSDK, $rootScope, $scope) {
-
         "use strict";
-
         $scope.isConnected = false;
 
         $scope.isLoading = false;
