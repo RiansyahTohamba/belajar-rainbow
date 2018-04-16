@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" >
+<html lang="en" ng-controller="bootstrapController">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,11 +8,12 @@
         <script src="//api.openrainbow.com/sdk/web/libs/loader-sdk.min.js" data-main="./config.json"></script>
 
     </head>
-    <body>
+    <body ng-controller="constructorController">
       <!-- ./node_modules/http-server/bin/http-server public/ -p 8887 -->
-      <div ng-controller="bootstrapController">
-        <rbx-user ></rbx-user>
+      <div >
+        <!-- <rbx-user name="$ctrl.username"></rbx-user> -->
+        {{user._displayName}}
+        <rbx-user></rbx-user>
       </div>
-      <div ng-controller="constructorController" ></div>
     </body>
 </html>

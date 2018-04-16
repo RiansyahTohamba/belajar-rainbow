@@ -6,7 +6,7 @@ angular.module('bootstrap').component('rbxUser', {
     controller : function (rainbowSDK, $rootScope, $scope) {
         console.log('usercmp terpanggil');
 
-        // this.name = 'riansyah';
+        this.name = $scope.name;
         // document.getElementById("userAvatar").src = $scope.user.avatar.src;
         // let user = rainbowSDK.contacts.getConnectedUser();
         // document.getElementById("name_sidebar").innerHTML = user._displayName;
@@ -56,7 +56,7 @@ angular.module('bootstrap').component('rbxUser', {
         $rootScope.$on(rainbowSDK.connection.RAINBOW_ONCONNECTIONSTATECHANGED, onConnectionStateChangeEvent);
         $rootScope.$broadcast(rainbowSDK.RAINBOW_ONREADY);
         // Subscribe to XMPP connection change
-        
+
     }
 
 });

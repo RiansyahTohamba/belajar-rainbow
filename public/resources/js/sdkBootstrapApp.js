@@ -2,10 +2,8 @@
   'use strict';
   var app = angular.module('bootstrap', ['sdk']);
 
-  app.controller('bootstrapController', ['$rootScope',"rainbowSDK",function($rootScope,rainbowSDK) {
+  app.controller('bootstrapController', ['$rootScope','$scope',"rainbowSDK",function($rootScope,$scope,rainbowSDK) {
       // 'use strict';
-      var ctrl = this;
-      ctrl.username = "Riansyah";
       var onReady = function () {
          console.log("[MSFTELEMED] :: Rainbow SDK has been ready!");
 
@@ -15,9 +13,8 @@
            // The SDK for Web is ready to be used, so you can sign in
          rainbowSDK.connection.signin(myRainbowLogin, myRainbowPassword)
            .then(function(account) {
-
-
-               console.log('login berhasil kawan');
+             $scope.user = rainbowSDK.contacts.getConnectedUser();
+               console.log('login berhasil kawan ');
            }).catch(function(err) {
               console.log(err);
            });
