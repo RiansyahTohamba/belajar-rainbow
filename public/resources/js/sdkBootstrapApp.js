@@ -1,5 +1,4 @@
-(function(angular) {
-  'use strict';
+
   var app = angular.module('bootstrap', ['sdk']);
 
   app.controller('bootstrapController', ['$rootScope','$scope',"rainbowSDK",function($rootScope,$scope,rainbowSDK) {
@@ -13,8 +12,8 @@
            // The SDK for Web is ready to be used, so you can sign in
          rainbowSDK.connection.signin(myRainbowLogin, myRainbowPassword)
            .then(function(account) {
-             $scope.user = rainbowSDK.contacts.getConnectedUser();
-               console.log('login berhasil kawan ');
+              $scope.user = rainbowSDK.contacts.getConnectedUser();
+              console.log('login berhasil kawan ');
            }).catch(function(err) {
               console.log(err);
            });
@@ -41,4 +40,3 @@
               };
               this.initialize();
   }]);
-})(window.angular);

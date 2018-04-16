@@ -11,9 +11,9 @@
     <body ng-controller="constructorController">
       <!-- ./node_modules/http-server/bin/http-server public/ -p 8887 -->
       <div >
-        <!-- <rbx-user name="$ctrl.username"></rbx-user> -->
-        {{user._displayName}}
-        <rbx-user></rbx-user>
+        <rbx-user name="{{user._displayName}}" avatar_src="{{user.avatar.src}}"></rbx-user>
+        <img src="{{user.avatar.src}}"
+    				id="userAvatar" style="width: 100px; height: 100px;" class="img-circle">
       </div>
     </body>
 </html>

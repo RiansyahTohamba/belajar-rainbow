@@ -2,10 +2,10 @@
 
 <div>
 	<div >
-		<img src="https://jetimages.com.br/wp-content/uploads/2017/10/giphy.gif"
+		<img src="{{ $ctrl.avatar_src }}"
 				id="userAvatar" style="width: 100px; height: 100px;" class="img-circle">
 		<div class="user-login info">
-			<span><h3 id="name_sidebar" >{{name}}</h3></span>
+			<span><h3 id="name_sidebar" >{{$ctrl.name}}</h3></span>
 			<span><a href="#"><i class="fa fa-circle text-success"></i> Online</a></span>
 		</div>
 	</div>
