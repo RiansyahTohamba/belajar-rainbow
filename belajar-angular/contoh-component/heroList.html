@@ -1,0 +1,13 @@
+<b>Heroes</b><br>
+<hero-detail
+  ng-repeat="pahlawan in $ctrl.list"
+  hero="pahlawan"
+  namaku="rian" 
+  on-delete="$ctrl.deleteHero(pahlawan)"
+  on-update="$ctrl.updateHero(pahlawan, prop, value)"></hero-detail>
+
+<!--
+Copyright 2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->

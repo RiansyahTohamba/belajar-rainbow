@@ -3,7 +3,19 @@ angular.module('bootstrap').component('rbxUser', {
         name: '@'
     },
     templateUrl: '/resources/js/components/user/userCmp.template.html',
-    controller : function rbcConnectionCtrl (rainbowSDK, $rootScope, $scope) {
+    controller : function (rainbowSDK, $rootScope, $scope) {
+        console.log('usercmp terpanggil');
+
+        // this.name = 'riansyah';
+        // document.getElementById("userAvatar").src = $scope.user.avatar.src;
+        // let user = rainbowSDK.contacts.getConnectedUser();
+        // document.getElementById("name_sidebar").innerHTML = user._displayName;
+        // document.getElementById("name_sidebar").innerHTML = this.name;
+
+        //TODO: gimana caranya manggil rainbowSDK ? karena userCmp yang terpanggil terlebih dahulu
+        // sementara rainbowSDK belum siap?
+        // bagaiamana mengakses $rootScope yang sudah dibuat di bootstrap??
+
 
         $scope.isConnected = false;
 
@@ -30,7 +42,7 @@ angular.module('bootstrap').component('rbxUser', {
         };
 
         var onStarted = function onReady() {
-            console.log('login on usercmp')
+            console.log('siap userCmp');
             // Get the connected user information
             $scope.user = rainbowSDK.contacts.getConnectedUser();
             document.getElementById("userAvatar").src = $scope.user.avatar.src;
@@ -42,9 +54,9 @@ angular.module('bootstrap').component('rbxUser', {
 
         // Subscribe to XMPP connection change
         $rootScope.$on(rainbowSDK.connection.RAINBOW_ONCONNECTIONSTATECHANGED, onConnectionStateChangeEvent);
-
+        $rootScope.$broadcast(rainbowSDK.RAINBOW_ONREADY);
         // Subscribe to XMPP connection change
-        $rootScope.$on(rainbowSDK.connection.RAINBOW_ONSTARTED, onStarted);
+        
     }
-    
+
 });

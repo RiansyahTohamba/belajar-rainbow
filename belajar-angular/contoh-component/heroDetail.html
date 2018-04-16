@@ -1,0 +1,16 @@
+<hr>
+<div>
+  Namaku : {{$ctrl.namaku}}<br>
+  Name: {{$ctrl.hero.name}}<br>
+  Location: <editable-field
+  field-value="$ctrl.hero.location"
+  jenis-field="text"
+  on-update="$ctrl.update('location', value)"></editable-field><br>
+  <button ng-click="$ctrl.delete()">Delete</button>
+</div>
+
+<!--
+Copyright 2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
