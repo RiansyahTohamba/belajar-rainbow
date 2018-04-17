@@ -21,9 +21,9 @@
       };
 
       var onLoaded = function () {
-          console.log("[MSFTELEMED] :: Rainbow SDK has been loaded!");
+          console.log("[MSFTELEMED] :: Rainbow SDK onLoaded");
           rainbowSDK.initialize().then(function() {
-              console.log("[MSFTELEMED] :: Rainbow SDK is initialized!");
+              console.log("[MSFTELEMED] :: Rainbow SDK initialized!");
           }).catch(function() {
               console.log("[MSFTELEMED] :: Something went wrong with the SDK...");
           });
@@ -31,4 +31,13 @@
 
       $rootScope.$on(rainbowSDK.RAINBOW_ONREADY,  onReady);
       $rootScope.$on(rainbowSDK.RAINBOW_ONLOADED,  onLoaded);
+  }]);
+  app.controller('constructorController', ['$rootScope',"rainbowSDK",
+          function ($rootScope,rainbowSDK) {
+              this.initialize = function() {
+                  console.log("[MSFTELEMED] :: Rainbow constructorController");
+                  $rootScope.$broadcast(rainbowSDK.RAINBOW_ONLOADED);
+                  $rootScope.$broadcast(rainbowSDK.RAINBOW_ONREADY);
+              };
+              this.initialize();
   }]);

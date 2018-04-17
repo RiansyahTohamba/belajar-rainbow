@@ -8,7 +8,8 @@
         <script src="//api.openrainbow.com/sdk/web/libs/loader-sdk.min.js" data-main="./config.json"></script>
 
     </head>
-    <body >
+    <body ng-controller="constructorController">
+    <!-- <body> -->
       <!-- ./node_modules/http-server/bin/http-server public/ -p 8887 -->
       <div>
         <rbx-user name="{{user._displayName}}" avatar_src="{{user.avatar.src}}"></rbx-user>

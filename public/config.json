@@ -26,11 +26,15 @@
             "resources/js/angular-block-ui/dist/angular-block-ui.min.js",
             "resources/js/components/messenger/messengerCmp.js",
             "resources/js/components/contact/contactCmp.js",
+            "resources/js/components/conversations/conversationsCmp.js",
+            "resources/js/components/conversation/conversationCmp.js",
             "resources/js/components/user/userCmp.js"
         ],
         "css": [
             "resources/js/components/messenger/messengerCmp.css",
             "resources/js/components/contact/contactCmp.css",
+            "resources/js/components/conversations/conversationsCmp.css",
+            "resources/js/components/conversation/conversationCmp.css",
             "resources/js/components/user/userCmp.css"
         ]
     },

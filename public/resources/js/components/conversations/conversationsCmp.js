@@ -3,6 +3,8 @@ angular.module('bootstrap').component('rbxConversations', {
         name: '@',
         conversations: '='
     },
+
+    templateUrl: 'resources/js/components/conversations/conversationsCmp.template.html' ,
     controller : function rbcConnectionsCtrl (rainbowSDK, $rootScope, $scope, $timeout) {
 
         $scope.conversations = [];
@@ -23,7 +25,7 @@ angular.module('bootstrap').component('rbxConversations', {
 
 
         var onConnectionStateChangeEvent = function onConnectionStateChangeEvent(event, status) {
-            
+
             if (status === rainbowSDK.connection.RAINBOW_CONNECTIONCONNECTED) {
                 $scope.conversations = getAllOneToOneConversations();
             }
@@ -37,7 +39,7 @@ angular.module('bootstrap').component('rbxConversations', {
         };
 
         var onConversationChanged = function(__event, conversationID) {
-            $rootScope.$broadcast(conversationID, null);  
+            $rootScope.$broadcast(conversationID, null);
         };
 
         $rootScope.$on(rainbowSDK.conversations.RAINBOW_ONCONVERSATIONSCHANGED, onConversationsListChanged);
@@ -47,7 +49,5 @@ angular.module('bootstrap').component('rbxConversations', {
         $rootScope.$on(rainbowSDK.connection.RAINBOW_ONCONNECTIONSTATECHANGED, onConnectionStateChangeEvent);
 
         $rootScope.$on(rainbowSDK.conversations.RAINBOW_ONCONVERSATIONCHANGED, onConversationChanged);
-    },
-     templateUrl: './resources/angular/js/components/conversations/conversationsCmp.template.html' 
-     // templateUrl: './resources/angular/js/components/conversations/conversationsCmp.template.html' 
+    }
 });
