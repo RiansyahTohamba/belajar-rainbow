@@ -1,0 +1,29 @@
+   <a class="nav-link active" href="" ng-disabled="isConnected" ng-click="createConversation()" ng-if="!$ctrl.item.conversation && !isConnectedUser">
+          <div class="col-md-4">
+            <img  width="55" height="55" src="{{$ctrl.item.avatar.src}}" class="img-circle" alt="avatar" />
+          </div>
+            <div class="col-md-8 about">
+              <div class="name"><h4>{{$ctrl.item.name.value }}</h4></div>
+              <div class="status">
+                <i class="fa fa-circle {{$ctrl.item.status}}"></i> <small>{{$ctrl.item.status}}</small>
+              </div>
+              <div>
+                <p>{{$ctrl.item.company.name}}</p>
+              </div>
+            </div>
+   </a>
+
+   <a href="" ng-disabled="isConnected" ng-click="closeConversation()" ng-if="$ctrl.item.conversation && !isConnectedUser">
+          <div class="col-md-4">
+            <img  width="55" height="55" src="{{$ctrl.item.avatar.src}}" class="img-circle" alt="avatar" />
+          </div>
+            <div class="col-md-8 about">
+              <div class="name"><h4>{{$ctrl.item.name.value }}</h4></div>
+              <div class="status">
+                <i class="fa fa-circle {{$ctrl.item.status}}"></i> <small>{{$ctrl.item.status}}</small>
+              </div>
+              <div>
+                <p>{{$ctrl.item.company.name}}</p>
+              </div>
+            </div>
+   </a>

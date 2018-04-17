@@ -16,7 +16,7 @@ angular.module('heroApp').component('heroDetail', {
   templateUrl: 'heroDetail.html',
   controller: HeroDetailController,
   bindings: {
-    namaku_lain: '@',
+    namaku: '@',
     hero: '<',
     onDelete: '&',
     onUpdate: '&'

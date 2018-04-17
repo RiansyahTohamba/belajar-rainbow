@@ -11,22 +11,19 @@ angular.module('bootstrap').component('rbxMessenger', {
 
         var listeners = [];
 
-        $scope.load = function() {
-          var myRainbowLogin = "riansyah@41studio.com";        // Replace by your login
-          var myRainbowPassword = "Tauhid1!";
-            rainbowSDK.connection.signin(myRainbowLogin, myRainbowPassword).then(function(account) {
-                $scope.isLoading = false;
-                $scope.isConnected = true;
 
-                $scope.contact = rainbowSDK.contacts.getAll();
-                $scope.contact1 = rainbowSDK.contacts.getConnectedUser();
+        this.load = function() {
+          console.log('load contact');
 
-                window.telolet = $scope.contact;
-                console.log('login berhasil');
-            }).catch(function(err) {
-                $scope.isLoading = false;
-                $scope.isConnected = false;
-            });
+          rainbowSDK.connection.signin("riansyah@41studio.com", "Tauhid1!").then(function(account) {
+              $scope.isLoading = false;
+              $scope.isConnected = true;
+              $scope.contacts = rainbowSDK.contacts.getAll();
+              $scope.my_profile = rainbowSDK.contacts.getConnectedUser();
+          }).catch(function(err) {
+              $scope.isLoading = false;
+              $scope.isConnected = false;
+          });
         }
 
         $scope.invite = function(contact){
@@ -34,22 +31,22 @@ angular.module('bootstrap').component('rbxMessenger', {
             window.asupteu = contact;
           rainbowSDK.contacts.addToContactsList(contact).then(function(contact){
             swal("Invitation Success!");
-            console.log("[DEMO] :: Successfully invited!");
+            console.log("[MSFTELEMED] :: Successfully invited!");
           }).catch(function(err){
             swal("Contact is already invited!");
-            console.log("[DEMO] :: Contact is already invited!");
+            console.log("[MSFTELEMED] :: Contact is already invited!");
           });
         }
 
         $scope.deleteContact = function(contact){
           rainbowSDK.contacts.removeFromContactsList(contact).then(function(contact) {
             swal("Delete Successfully!");
-            console.log("[DEMO] :: Successfully!");
+            console.log("[MSFTELEMED] :: Successfully!");
 
-            $scope.load();//reload data
+            this.load();//reload data
           }).catch(function(err) {
             swal("Delete Error!");
-            console.log("[DEMO] :: Error!");
+            console.log("[MSFTELEMED] :: Error!");
           });
         }
 
@@ -60,6 +57,11 @@ angular.module('bootstrap').component('rbxMessenger', {
             window.cek = $scope.contact;
         }
 
+        var onStarted = function onStarted() {
+            $scope.contacts = rainbowSDK.contacts.getAll();
+            $scope.invitations = rainbowSDK.contacts.getInvitationsReceived();
+            console.log("All Invitations : ", rainbowSDK.contacts.getInvitationsReceived(), " length: ", rainbowSDK.contacts.getInvitationsReceived().length);
+        };
 
         this.$onInit = function () {
 
@@ -88,22 +90,18 @@ angular.module('bootstrap').component('rbxMessenger', {
         };
 
         var onContactInformationChangeEvent = function onContactInformationChangeEvent(event, contact) {
-            console.log("DEMO :: Contact information changed to ", contact);
+            console.log("MSFTELEMED :: Contact information changed to ", contact);
         };
 
         var onContactPresenceChangeEvent = function onContactPresenceChangeEvent(event, status) {
-            console.log("DEMO :: presence changed to ", status);
+            console.log("MSFTELEMED :: presence changed to ", status);
         };
 
         var countNumberOfContacts = function countNumberOfContacts() {
             $scope.nbContacts = Object.keys($scope.contacts).length;
         };
 
-        var onStarted = function onReady() {
-            $scope.contacts = rainbowSDK.contacts.getAll();
-            $scope.invitations = rainbowSDK.contacts.getInvitationsReceived();
-            console.log("All Invitations : ", rainbowSDK.contacts.getInvitationsReceived(), " length: ", rainbowSDK.contacts.getInvitationsReceived().length);
-        };
+
 
         var onConnectionStateChangeEvent = function onConnectionStateChangeEvent(event, status) {
 

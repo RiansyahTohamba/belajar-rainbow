@@ -1,0 +1,84 @@
+<style type="text/css">
+  .my-img{
+    float: right;
+  }
+</style>
+
+<!-- <div class="messageCmp-area-{{$ctrl.item.side}}">
+  <div class="messageCmp-content">{{$ctrl.item.data}}</div>
+  <div class="messageCmp-timestamp">{{date}}</div>
+</div> -->
+
+
+      <div class="col-md-12 other-message">
+        <div class="chatbody">
+          <table class="table">
+            <td>
+              <li ng-if="userData.email != $ctrl.item.from.emailPro" class="clearfix">
+                <div class="row">
+                  <div class="col-md-3 chat-img pull-left">
+                    <img src="{{$ctrl.item.from.avatar.src}}" alt="User Avatar" class="img-circle other-img" style="width: 60px; height: 60px;"/>
+                    <!--<img src="{{TM.from.avatar.src}}" alt="Admin Avatar" style="border-radius: 100%;" class="profile-pic" />-->
+                  </div>
+                  <div class="col-md-9 message {{$ctrl.item.side}}" conversation="ctrl.conversation">
+                    <div class="chat-body clearfix">
+                      <div class="header">
+                        <strong class="primary-font">{{$ctrl.item.from._displayName}}</strong> <small class="pull-right text-muted">
+                        <span class="glyphicon glyphicon-time"></span>{{date}}</small>
+                      </div>
+                      <p ng-if="$ctrl.item.shortFileDescriptor !== null">
+                          <p ng-if="$ctrl.item.shortFileDescriptor !== null">
+                            <button ng-click="onDownloadFile()" class="btn btn-success btn-xs">download({{$ctrl.item.shortFileDescriptor.filename}})</button>
+                          </p><br>
+                          <p ng-if="$ctrl.item.shortFileDescriptor !== null">
+                            {{$ctrl.item.data}}
+                          </p>
+                      </p>
+                      <p ng-if="$ctrl.item.shortFileDescriptor === null">
+                          {{$ctrl.item.data}}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li ng-if="userData.email === $ctrl.item.from.emailPro" class="clearfix">
+                <div class="row">
+                  <div class="col-md-3 chat-img pull-right">
+                    <img src="{{$ctrl.item.from.avatar.src}}" style="width: 60px; height: 60px;" alt="User Avatar" class="img-circle my-img" />
+                  </div>
+                  <div class="col-md-9 my-message {{$ctrl.item.side}}" conversation="ctrl.conversation">
+                    <div class="chat-body clearfix">
+                      <div class="header">
+                        <strong class="primary-font pull-right">{{$ctrl.item.from._displayName}}</strong><small class="pull-left text-muted">
+                        <span class="glyphicon glyphicon-time"></span>{{date}}</small>
+                      </div>
+                      <br>
+                      <p ng-if="$ctrl.item.shortFileDescriptor !== null">
+                          <p ng-if="$ctrl.item.shortFileDescriptor !== null">
+                            <button ng-click="onDownloadFile()" class="btn btn-success btn-xs pull-right">download({{$ctrl.item.shortFileDescriptor.filename}})</button>
+                          </p><br>
+                          <p ng-if="$ctrl.item.shortFileDescriptor !== null">
+                            {{$ctrl.item.data}}
+                          </p>
+                      </p>
+                      <p ng-if="$ctrl.item.shortFileDescriptor === null">
+                          {{$ctrl.item.data}}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </td>
+          </table>
+        </div>
+      </div>
+<!--           <li class="clearfix">
+            <div class="message-data {{$ctrl.item.side}}" style="background: transparent;box-shadow: none;">
+              <span class="message-data-time" >{{date}}</span> &nbsp; &nbsp;
+              <span class="message-data-name" >{{$ctrl.item.name}}</span> <i class="fa fa-circle me"></i>
+
+            </div>
+            <div class="message {{$ctrl.item.side}}">
+              {{$ctrl.item.data}}
+            </div>
+          </li>  -->

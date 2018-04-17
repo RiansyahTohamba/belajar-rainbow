@@ -23,10 +23,14 @@
         },
         "js": [
             "resources/js/sdkBootstrapApp.js",
+            "resources/js/angular-block-ui/dist/angular-block-ui.min.js",
+            "resources/js/components/messenger/messengerCmp.js",
+            "resources/js/components/contact/contactCmp.js",
             "resources/js/components/user/userCmp.js"
         ],
         "css": [
-            "resources/styles/sdkBootstrapApp.css",
+            "resources/js/components/messenger/messengerCmp.css",
+            "resources/js/components/contact/contactCmp.css",
             "resources/js/components/user/userCmp.css"
         ]
     },

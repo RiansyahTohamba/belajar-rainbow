@@ -1,12 +1,11 @@
 
   var app = angular.module('bootstrap', ['sdk']);
 
-  app.controller('bootstrapController', ['$rootScope','$scope',"rainbowSDK",
-    function($rootScope,$scope,rainbowSDK) {
-      'use strict';
-
+  app.controller('bootstrapController', ['$rootScope','$scope',"rainbowSDK",function($rootScope,$scope,rainbowSDK) {
+      // 'use strict';
       var onReady = function () {
          console.log("[MSFTELEMED] :: Rainbow SDK has been ready!");
+
          var myRainbowLogin = "riansyah@41studio.com";
          var myRainbowPassword = "Tauhid1!";
 
@@ -31,4 +30,13 @@
 
       $rootScope.$on(rainbowSDK.RAINBOW_ONREADY,  onReady);
       $rootScope.$on(rainbowSDK.RAINBOW_ONLOADED,  onLoaded);
+  }]);
+  app.controller('constructorController', ['$rootScope',"rainbowSDK",
+          function ($rootScope,rainbowSDK) {
+              this.initialize = function() {
+                  console.log("[MSFTELEMED] :: Rainbow initialize Application");
+                  $rootScope.$broadcast(rainbowSDK.RAINBOW_ONREADY);
+                  $rootScope.$broadcast(rainbowSDK.RAINBOW_ONLOADED);
+              };
+              this.initialize();
   }]);
