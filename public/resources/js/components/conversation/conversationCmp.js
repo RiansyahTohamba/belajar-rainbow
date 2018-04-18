@@ -182,10 +182,6 @@ angular.module('bootstrap').component('rbxConversation', {
             /* Ask the user to authorize the application to access to the media devices */
             navigator.mediaDevices.getUserMedia({audio: true, video: true}).then(function(stream) {
 
-                /* Stream received which means that the user has authorized the application to access to the devices in audio and video. Local stream can be stopped at this time */
-                // stream.getTracks().forEach(function(track) {
-                //     track.stop();
-                // });
 
                 /*  Get the list of available devices */
                 navigator.mediaDevices.enumerateDevices().then(function(devices){
@@ -232,17 +228,7 @@ angular.module('bootstrap').component('rbxConversation', {
             rainbowSDK.webRTC.showLocalVideo();
             rainbowSDK.webRTC.showRemoteVideo($scope.callItem);
             console.log("and this is the remote video : ", rainbowSDK.webRTC.showRemoteVideo($scope.callItem));
-            // if(rainbowSDK.webRTC.hasACamera()) {
-            //     /* A webcam is available, you can make video call */
-            //     rainbowSDK.webRTC.answerInVideo($scope.callItem);
-            //     rainbowSDK.webRTC.showLocalVideo();
-            //     rainbowSDK.webRTC.showRemoteVideo($scope.callItem);
-            //     console.log("local video ini hasilnya : ", rainbowSDK.webRTC.showLocalVideo());
-            //     console.log("remote video ini hasilnya : ", rainbowSDK.webRTC.showRemoteVideo($scope.callItem));
-            // } else {
-            //     /* No webcam detected */
-            //     alert("There is no webcam detected");
-            // }
+
         }
 
         var onWebRTCCallChanged = function onWebRTCCallChanged(event, call) {
@@ -252,13 +238,7 @@ angular.module('bootstrap').component('rbxConversation', {
             // console.log("calling event : ", event);
             $scope.callItem = call;
             $scope.callingUser = call.contact;
-            // var me = rainbowSDK.contacts.getConnectedUser();
-            // console.log("calling call : ", call);
-            // console.log("calling caller : ", call.contact);
-            // console.log("calling me : ", me);
-            // if (!call.isInitiator) {
-            //     $("#calling").modal("show");
-            // }
+
             /* Listen to WebRTC call state change */
             switch(call.status.value) {
                 case "incommingCall":

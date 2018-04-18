@@ -38,6 +38,7 @@
                   console.log("[MSFTELEMED] :: Rainbow constructorController");
                   $rootScope.$broadcast(rainbowSDK.RAINBOW_ONLOADED);
                   $rootScope.$broadcast(rainbowSDK.RAINBOW_ONREADY);
+                  $rootScope.$broadcast(rainbowSDK.connection.RAINBOW_ONCONNECTIONSTATECHANGED);
               };
               this.initialize();
   }]);

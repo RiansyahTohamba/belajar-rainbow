@@ -1,2 +1,7 @@
-
-	<rbx-conversation ng-repeat="item in conversations" item="item"></rbx-conversation>
+	<!-- <rbx-conversation ng-repeat="conversation in conversations" item="conversation"></rbx-conversation> -->
+	<!--  tarik item dari conversation terlebih dahulu-->
+	<ul >
+			<li ng-repeat="item in conversations" >
+					{{item.name.value}}
+			</li>
+	</ul>
