@@ -22,21 +22,21 @@
             "appSecret":""
         },
         "js": [
-            "resources/js/sdkBootstrapApp.js",
-            "resources/js/services/conversations.js",
-            "resources/js/angular-block-ui/dist/angular-block-ui.min.js",
-            "resources/js/components/messenger/messengerCmp.js",
-            "resources/js/components/contact/contactCmp.js",
-            "resources/js/components/conversations/conversationsCmp.js",
-            "resources/js/components/conversation/conversationCmp.js",
-            "resources/js/components/user/userCmp.js"
+            "resources/angular/js/sdkBootstrapApp.js",
+            "resources/angular/js/services/conversations.js",
+            "resources/angular/js/angular-block-ui/dist/angular-block-ui.min.js",
+            "resources/angular/js/components/messenger/messengerCmp.js",
+            "resources/angular/js/components/contact/contactCmp.js",
+            "resources/angular/js/components/conversations/conversationsCmp.js",
+            "resources/angular/js/components/conversation/conversationCmp.js",
+            "resources/angular/js/components/user/userCmp.js"
         ],
         "css": [
-            "resources/js/components/messenger/messengerCmp.css",
-            "resources/js/components/contact/contactCmp.css",
-            "resources/js/components/conversations/conversationsCmp.css",
-            "resources/js/components/conversation/conversationCmp.css",
-            "resources/js/components/user/userCmp.css"
+            "resources/angular/js/components/messenger/messengerCmp.css",
+            "resources/angular/js/components/contact/contactCmp.css",
+            "resources/angular/js/components/conversations/conversationsCmp.css",
+            "resources/angular/js/components/conversation/conversationCmp.css",
+            "resources/angular/js/components/user/userCmp.css"
         ]
     },
     "settings": {

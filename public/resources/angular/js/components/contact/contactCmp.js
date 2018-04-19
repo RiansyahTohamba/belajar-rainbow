@@ -2,7 +2,7 @@ angular.module('bootstrap').component('rbxContact', {
     bindings: {
         item: '<'
     },
-    templateUrl: 'resources/js/components/contact/contactCmp.template.html',
+    templateUrl: 'resources/angular/js/components/contact/contactCmp.template.html',
     controller : function(rainbowSDK, $scope) {
 
     	var ctrl = $scope;

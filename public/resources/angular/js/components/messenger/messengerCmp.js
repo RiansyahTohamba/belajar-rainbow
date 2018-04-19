@@ -1,6 +1,6 @@
 angular.module('bootstrap').component('rbxMessenger', {
     bindings: {},
-    templateUrl: 'resources/js/components/messenger/messengerCmp.template.html',
+    templateUrl: 'resources/angular/js/components/messenger/messengerCmp.template.html',
     controller : function rbxMessengerCmp (rainbowSDK, $rootScope, $scope) {
 
         $scope.isConnected = false;

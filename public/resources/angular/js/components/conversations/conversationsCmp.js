@@ -1,13 +1,13 @@
 angular.module('bootstrap').component('rbxConversations', {
     bindings: {
     },
-    templateUrl: 'resources/js/components/conversations/conversationsCmp.template.html' ,
+    templateUrl: 'resources/angular/js/components/conversations/conversationsCmp.template.html' ,
     controller : function rbcConnectionsCtrl (rainbowSDK, $rootScope, $scope, $timeout,rainbowFactory,conversations) {
         $scope.conversations = [];
-        
+
         // testing purpose
         // $scope.factory = rainbowFactory.getAllConversations();
-        // $scope.getAllOneToOneConversations = conversations.getAllOneToOneConversations(rainbowFactory.getAllConversations());
+        $scope.conversations = conversations.getAllOneToOneConversations(rainbowFactory.getAllConversations());
 
         var setOneToOneConversations = function () {
             $scope.conversations = conversations.getAllOneToOneConversations(rainbowSDK.conversations.getAllConversations());

@@ -49,5 +49,5 @@ angular.module('bootstrap').component('rbxMessage', {
         $scope.userData = JSON.parse(localStorage.getItem('user'));
 
     },
-    templateUrl: './resources/angular/js/components/conversations/messageCmp.template.html'
+    templateUrl: './resources/angular/angular/js/components/conversations/messageCmp.template.html'
 });

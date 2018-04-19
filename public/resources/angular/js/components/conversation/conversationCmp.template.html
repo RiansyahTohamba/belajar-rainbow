@@ -1,0 +1,167 @@
+<div class="chat-header clearfix">
+
+  <img class="img-circle" src="{{$ctrl.item.avatar}}" width="60" height="60" alt="avatar" />
+
+  <div class="chat-about">
+    <div class="conversation-name">{{$ctrl.item.contact._displayName}}</div>
+  </div>
+
+  <button ng-click="videoCall()" class="btn btn-success call-btn pull-right">
+          <i class="fa fa-video-camera"></i>
+  </button>
+  <button type="button" ng-click="audioCall()" class="btn btn-success call-btn pull-right" style="float: right">
+    <i class="fa fa-phone"></i>
+  </button>
+
+  <!-- call modal : di comment sementara-->
+    <!-- <div class="animated fadeInUp">
+      <div id="calling" class="modal" role="dialog" name="calling">
+        <div class="call-card">
+          <div class="call-header">
+
+            <video id="minivideo" autoplay muted></video>
+            <video id="largevideo" autoplay></video>
+            <video id="globalVideoTag" autoplay></video>
+            <audio id="globalAudioTag" autoplay></audio>
+          </div>
+
+          <div class="footer">
+            <div class="bouton raccrocher" ng-click="releaseCall()">
+              <span class="icon red"></span>
+            </div>
+            <div class="bouton decrocher" ng-click="answerAudio()">
+              <span class="icon green"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="animated fadeInUp">
+      <div id="videoShowUp" class="modal" role="dialog" name="videoShowUp">
+          <div class="container vid-container">
+
+              <!-- Add theses tags in your HTML file -->
+              <video id="minivideo" autoplay muted></video>
+              <video id="largevideo" autoplay></video>
+              <video id="globalVideoTag" autoplay style="display:none;"></video>
+              <audio id="globalAudioTag" autoplay style="display:none;"></audio>
+              <div class="row button-row">
+                <div class="col-md-4 button-placeholder">
+                  <button type="button" class="btn btn-success call-vid-btn">
+                    <i class="fa fa-phone"></i>
+                  </button>
+                </div>
+                <div class="col-md-4 button-placeholder">
+                  <button type="button" class="btn btn-danger call-vid-btn">
+                    <i class="fa fa-phone" style="transform: rotate(135deg);"></i>
+                  </button>
+                </div>
+                <div class="col-md-4 button-placeholder">
+                  <button type="button" class="btn btn-primary call-vid-btn">
+                    <i class="fa fa-microphone"></i>
+                  </button>
+                </div>
+              </div>
+
+          </div>
+      </div>
+    </div>
+
+    <!-- <div class="animated fadeInUp">
+      <div id="mycalling" class="modal" role="dialog" name="mycalling">
+        <div class="call-card">
+          <div class="call-header">
+            <div class="animation">
+              <span class="icon"><img src="{{$ctrl.item.contact.avatar.src}}" class="img-circle" style="width: 100%;"></span>
+              <div class="cercle one"></div>
+              <div class="cercle two"></div>
+              <div class="cercle three"></div>
+            </div>
+
+            <p class="phoneNumber">{{$ctrl.item.contact.displayName}}</p>
+            <p class="calling">Calling</p>
+          </div>
+
+          <div class="footer">
+            <div class="bouton raccrocher" ng-click="releaseCall()">
+              <span class="icon red"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+</div>
+
+<div class="chat-history">
+  <ul>
+    <rbx-message ng-repeat="item in $ctrl.item.messages" item="item"></rbx-message>
+  </ul>
+</div> <!-- end chat-history -->
+
+
+<div class="send-wrap chat-message clearfix">
+  <form ng-submit="onSend()">
+    <textarea name="message" id="messageField" ng-model="message" class="form-control send-message" rows="3" placeholder="Write a reply..." autofocus></textarea>
+    <div class="btn-panel">
+      <button type="button" class="btn btn-default btn-sm" aria-label="Left Align" data-toggle="modal" data-target="#exampleModalup">
+        <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+      </button>&nbsp;&nbsp;&nbsp;
+      <button type="button" class="btn btn-default btn-sm" aria-label="Left Align" data-toggle="modal" data-target="#exampleModalimg">
+        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+      </button>
+      <button ng-submit="onSend()" class="btn btn-success send-button pull-right">Send</button>
+    </div>
+
+  </form>
+
+  <!-- Modal -->
+  <div class="modal" id="exampleModalup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+
+          <div class="form-group">
+              <label>Upload File</label>
+              <div class="input-group">
+                  <span class="input-group-btn">
+                      <span class="btn btn-default btn-file">
+                          Browse… <input type="file" files-input ng-model="fileArray" multiple>
+                      </span>
+                  </span>
+                  <input type="text" id="uploadMessage" name="uploadMessage" ng-model="uploadMessage" class="form-control" placeholder="your message...">
+              </div>
+              <img id='img-upload'/>
+              <button ng-click="uploadFile()" class="btn btn-success send-button pull-right">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="exampleModalimg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+
+          <div class="form-group">
+              <label>Upload Image</label>
+              <div class="input-group">
+                  <span class="input-group-btn">
+                      <span class="btn btn-default btn-file">
+                        <!-- <input type="file" id="uploaderFile" name="uploaderFile" ng-model="uploaderFile"> -->
+                          Browse… <input type="file" files-input ng-model="fileArray" accept="image/*" multiple>
+                      </span>
+                  </span>
+                  <input type="text" id="uploadMessage" name="uploadMessage" ng-model="uploadMessage" class="form-control" placeholder="your message...">
+              </div>
+              <img id='img-upload'/>
+              <button ng-click="uploadFile()" class="btn btn-success send-button pull-right">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div> <!-- end chat-message -->

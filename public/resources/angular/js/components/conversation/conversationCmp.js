@@ -1,12 +1,9 @@
 angular.module('bootstrap').component('rbxConversation', {
     bindings: {
-        item: '='
+        item: '=',
     },
-    templateUrl: 'resources/js/components/conversation/conversationCmp.template.html',
+    templateUrl: 'resources/angular/js/components/conversation/conversationCmp.template.html',
     controller : function(rainbowSDK, $rootScope, $scope) {
-
-        var ctrl = $scope;
-
         var handlers = [];
 
         $scope.contact = this.item.contact;
@@ -282,9 +279,6 @@ angular.module('bootstrap').component('rbxConversation', {
             console.log("you have a media error here : ", error);
         };
 
-        // In non-angular application
-        $(document).on(rainbowSDK.webRTC.RAINBOW_ONWEBRTCTMEDIAERROROCCURED, onWebRTCGetUserMediaErrorOccured);
-    /* or */
         // in angular application
         $rootScope.$on("$destroy", ($rootScope.$on(rainbowSDK.webRTC.RAINBOW_ONWEBRTCTMEDIAERROROCCURED, onWebRTCGetUserMediaErrorOccured)));
 
@@ -307,10 +301,6 @@ angular.module('bootstrap').component('rbxConversation', {
                 }
         };
 
-        // In non-angular application
-        $(document).on(rainbowSDK.webRTC.RAINBOW_ONWEBRTCTRACKCHANGED, onWebRTCTrackChanged);
-    /* or */
-        // in angular application
         $rootScope.$on("$destroy", ($rootScope.$on(rainbowSDK.webRTC.RAINBOW_ONWEBRTCTRACKCHANGED, onWebRTCTrackChanged)));
 
         var escaladeToVideoCall = function escaladeToVideoCall(call) {
@@ -322,18 +312,19 @@ angular.module('bootstrap').component('rbxConversation', {
             /* Call this API to release video in the call */
             var res = rainbowSDK.webRTC.reverseToAudioCall(call);
         };
-
-        rainbowSDK.im.getMessagesFromConversation(this.item, 50).then(function(__messages) {
-            onConversationChanged();
-        });
-
-        var allfiles = rainbowSDK.fileStorage.getFilesReceivedInConversation(this.item);
-        console.log("All uploaded files : ", allfiles, " and the conversation is : ", this.item);
+        
+        // TODO: ERROR , cari tau penyebabnya
+        // rainbowSDK.im.getMessagesFromConversation(this.item, 50).then(function(__messages) {
+        //     onConversationChanged();
+        // });
+        // TODO: ERROR , cari tau penyebabnya
+        // var allfiles = rainbowSDK.fileStorage.getFilesReceivedInConversation(this.item);
+        // console.log("All uploaded files : ", allfiles, " and the conversation is : ", this.item);
 
         var onConversationChanged = function onConversationChanged() {
             setTimeout(function() {
-                var containerHeight = $('.conversation-' + ctrl.conversation.dbId)[0].scrollHeight;
-                var container = angular.element(".conversation-" + ctrl.conversation.dbId);
+                var containerHeight = $('.conversation-' + $scope.conversation.dbId)[0].scrollHeight;
+                var container = angular.element(".conversation-" + $scope.conversation.dbId);
                 container.animate({scrollTop: containerHeight}, 100);
             }, 100);
         };
@@ -343,7 +334,7 @@ angular.module('bootstrap').component('rbxConversation', {
             // Subscribe to XMPP connection change
             handlers.push($rootScope.$on(this.item.id, onConversationChanged));
 
-             var container = angular.element(".conversation-" + ctrl.conversation.dbId);
+             var container = angular.element(".conversation-" + $scope.conversation.dbId);
 
              container.on('scroll', function(__event) {
 

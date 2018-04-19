@@ -3,7 +3,7 @@ angular.module('bootstrap').component('rbxUser', {
         avatar_src: '@',
         name: '@',
     },
-    templateUrl: '/resources/js/components/user/userCmp.template.html',
+    templateUrl: '/resources/angular/js/components/user/userCmp.template.html',
     controller : function (rainbowSDK, $rootScope, $scope) {
         console.log('usercmp terpanggil');
         $scope.isConnected = false;
