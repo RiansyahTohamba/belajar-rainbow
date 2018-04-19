@@ -23,6 +23,7 @@
         },
         "js": [
             "resources/js/sdkBootstrapApp.js",
+            "resources/js/services/conversations.js",
             "resources/js/angular-block-ui/dist/angular-block-ui.min.js",
             "resources/js/components/messenger/messengerCmp.js",
             "resources/js/components/contact/contactCmp.js",

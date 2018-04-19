@@ -1,54 +1,29 @@
 angular.module('bootstrap').component('rbxConversations', {
     bindings: {
     },
-
     templateUrl: 'resources/js/components/conversations/conversationsCmp.template.html' ,
-    controller : function rbcConnectionsCtrl (rainbowSDK, $rootScope, $scope, $timeout) {
+    controller : function rbcConnectionsCtrl (rainbowSDK, $rootScope, $scope, $timeout,rainbowFactory,conversations) {
         $scope.conversations = [];
+        
+        // testing purpose
+        // $scope.factory = rainbowFactory.getAllConversations();
+        // $scope.getAllOneToOneConversations = conversations.getAllOneToOneConversations(rainbowFactory.getAllConversations());
 
-        // $scope.conversations = [];
-
-        var getAllOneToOneConversations = function getAllOneToOneConversations() {
-
-            var conversations = rainbowSDK.conversations.getAllConversations();
-
-            var oneToOneConversations = [];
-
-            conversations.forEach(function(conversation) {
-                if (conversation.type === 0) {
-                    oneToOneConversations.push(conversation);
-                }
-            });
-
-            return oneToOneConversations;
-        };
-
-
-        var onConnectionStateChangeEvent = function onConnectionStateChangeEvent(event, status) {
-            console.log('at onConnectionStateChangeEvent');
-            if (status === rainbowSDK.connection.RAINBOW_CONNECTIONCONNECTED) {
-                $scope.conversations = getAllOneToOneConversations();
-            }else {
-                $scope.conversations = [];
-            }
-        };
-
-        var onConversationsListChanged = function onConversationsListChanged(event, conversation) {
-            $scope.conversations = getAllOneToOneConversations();
+        var setOneToOneConversations = function () {
+            $scope.conversations = conversations.getAllOneToOneConversations(rainbowSDK.conversations.getAllConversations());
         };
 
         var onConversationChanged = function(__event, conversationID) {
             $rootScope.$broadcast(conversationID, null);
         };
 
-        $rootScope.$on(rainbowSDK.conversations.RAINBOW_ONCONVERSATIONSCHANGED, onConversationsListChanged);
+        $rootScope.$on(rainbowSDK.conversations.RAINBOW_ONCONVERSATIONSCHANGED, setOneToOneConversations);
 
-        $rootScope.$on(rainbowSDK.conversations.RAINBOW_ONCONVERSATIONREMOVED, onConversationsListChanged);
+        $rootScope.$on(rainbowSDK.conversations.RAINBOW_ONCONVERSATIONREMOVED, setOneToOneConversations);
 
-        $rootScope.$on(rainbowSDK.connection.RAINBOW_ONCONNECTIONSTATECHANGED, onConnectionStateChangeEvent);
+        $rootScope.$on(rainbowSDK.connection.RAINBOW_ONCONNECTIONSTATECHANGED, setOneToOneConversations);
 
         $rootScope.$on(rainbowSDK.conversations.RAINBOW_ONCONVERSATIONCHANGED, onConversationChanged);
 
-        var 
     }
 });
