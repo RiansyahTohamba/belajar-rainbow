@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+
+<head>
+  <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
+  <script src="script.js"></script>
+  <script src="myInput.js"></script>
+  <script src="myButton.js"></script>
+</head>
+
+<body ng-controller="MyCtrl">
+  <div class="container">
+    <h2>My form with component</h2>
+    <form role="form">
+      <div class="form-group">
+        <label>First name</label>
+        <my-input placeholder="Enter first name" model="userData.firstName"></my-input>
+      </div>
+      <div class="form-group">
+        <label>Last name</label>
+        <my-input placeholder="Enter last name" model="userData.lastName"></my-input>
+      </div>
+      <my-button label="Submit"></my-button>
+    </form>
+  </div>
+
+  <div class="container">
+    <h2>My form without component</h2>
+    <div class="form-group">
+      <label for="myinput">Data binding</label>
+      <input type="text" placeholder="Enter email" id="myinput" class="form-control" ng-model="userData.name"/>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Check data binding</h2>
+    <label>{{userData.name}}</label>
+    <label>{{userData.firstName}}</label>
+    <label>{{userData.lastName}}</label>
+  </div>
+</body>
+
+</html>

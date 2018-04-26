@@ -2,22 +2,17 @@
   'use strict';
 function EditableFieldController($scope, $element, $attrs) {
   var ctrl = this;
-  ctrl.editMode = false;
 
   ctrl.handleModeChange = function() {
-    if (ctrl.editMode) {
-      ctrl.onUpdate({value: ctrl.fieldValue});
-      ctrl.fieldValueCopy = ctrl.fieldValue;
-    }
-    ctrl.editMode = !ctrl.editMode;
+    ctrl.output = ctrl.fieldValue
   };
 }
 
 angular.module('heroApp').component('rbxReferral', {
-  templateUrl: 'editableField.html',
+  templateUrl: 'form.html',
   controller: EditableFieldController,
   bindings: {
-    fieldValue: '<',
+    fieldValue: '<', 
     jenisField: '@?',
     onUpdate: '&'
   }
