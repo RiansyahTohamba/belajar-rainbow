@@ -1,0 +1,8 @@
+<div class="nav">
+  <a href="#/">Back to Full Album List</a>
+</div>
+<div class="albumDetail" ng-repeat="album in albums | filter: {id: thisAlbum}">
+  <h2>{{album.album}}</h2>
+  <span>{{album.date}}</span>
+  <p>{{album.desc}}</p>
+</div>
